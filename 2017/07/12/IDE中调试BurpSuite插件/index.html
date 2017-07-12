@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="BurpSuite,IDE,Eclipse," />
 
 
 
@@ -93,16 +93,20 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="在开发BurpSuite插件的过程中积累的调试经验，特此分享。 准备下载BurpSuite我这里用的是Burp Suite Free Edition v1.7.23 IDE可以使用的Java IDE有Eclipse Java EE IDE for Web Developers或者Intellij IDEA。演示使用的是Eclipse Neon.3 Release (4.6.3) BurpSui">
+<meta name="keywords" content="BurpSuite,IDE,Eclipse">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://yuankeyang.github.io/2017/07/09/hello-world/index.html">
+<meta property="og:title" content="IDE中调试BurpSuite插件">
+<meta property="og:url" content="https://yuankeyang.github.io/2017/07/12/IDE中调试BurpSuite插件/index.html">
 <meta property="og:site_name" content="Yakir&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-07-09T13:09:01.000Z">
+<meta property="og:description" content="在开发BurpSuite插件的过程中积累的调试经验，特此分享。 准备下载BurpSuite我这里用的是Burp Suite Free Edition v1.7.23 IDE可以使用的Java IDE有Eclipse Java EE IDE for Web Developers或者Intellij IDEA。演示使用的是Eclipse Neon.3 Release (4.6.3) BurpSui">
+<meta property="og:image" content="http://chuantu.biz/t5/133/1499863954x793379697.png">
+<meta property="og:image" content="http://chuantu.biz/t5/133/1499864300x2890173939.png">
+<meta property="og:updated_time" content="2017-07-12T13:01:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="IDE中调试BurpSuite插件">
+<meta name="twitter:description" content="在开发BurpSuite插件的过程中积累的调试经验，特此分享。 准备下载BurpSuite我这里用的是Burp Suite Free Edition v1.7.23 IDE可以使用的Java IDE有Eclipse Java EE IDE for Web Developers或者Intellij IDEA。演示使用的是Eclipse Neon.3 Release (4.6.3) BurpSui">
+<meta name="twitter:image" content="http://chuantu.biz/t5/133/1499863954x793379697.png">
 
 
 
@@ -130,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://yuankeyang.github.io/2017/07/09/hello-world/"/>
+  <link rel="canonical" href="https://yuankeyang.github.io/2017/07/12/IDE中调试BurpSuite插件/"/>
 
 
 
 
 
-  <title>Hello World | Yakir's blog</title>
+  <title>IDE中调试BurpSuite插件 | Yakir's blog</title>
   
 
 
@@ -255,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://yuankeyang.github.io/2017/07/09/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://yuankeyang.github.io/2017/07/12/IDE中调试BurpSuite插件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yakir">
@@ -272,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">IDE中调试BurpSuite插件</h1>
         
 
         <div class="post-meta">
@@ -284,8 +288,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T21:09:01+08:00">
-                2017-07-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T00:00:00+08:00">
+                2017-07-12
               </time>
             
 
@@ -319,15 +323,12 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>在开发BurpSuite插件的过程中积累的调试经验，特此分享。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="下载BurpSuite"><a href="#下载BurpSuite" class="headerlink" title="下载BurpSuite"></a>下载BurpSuite</h3><p>我这里用的是<a href="https://portswigger.net/burp/freedownload" target="_blank" rel="external">Burp Suite Free Edition v1.7.23</a></p>
+<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><p>可以使用的Java IDE有<a href="http://www.eclipse.org" target="_blank" rel="external">Eclipse Java EE IDE for Web Developers</a>或者<a href="http://www.jetbrains.com/idea/" target="_blank" rel="external">Intellij IDEA</a>。演示使用的是Eclipse Neon.3 Release (4.6.3)<br></p>
+<h3 id="BurpSuite插件工程"><a href="#BurpSuite插件工程" class="headerlink" title="BurpSuite插件工程"></a>BurpSuite插件工程</h3><p>这里我使用的是Github上一个开源项目<a href="https://github.com/nccgroup/BurpSuiteLoggerPlusPlus" target="_blank" rel="external">Logger++</a></p>
+<h2 id="开始调试"><a href="#开始调试" class="headerlink" title="开始调试"></a>开始调试</h2><h3 id="通过下面命令启动BurpSuite"><a href="#通过下面命令启动BurpSuite" class="headerlink" title="通过下面命令启动BurpSuite"></a>通过下面命令启动BurpSuite</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java -agentlib:jdwp=transport=dt_socket,server=y,<span class="built_in">suspend</span>=n,address=8888 -jar burpsuite_free_v1.7.23.jar</div></pre></td></tr></table></figure>
+<h3 id="配置远程调试工程"><a href="#配置远程调试工程" class="headerlink" title="配置远程调试工程"></a>配置远程调试工程</h3><p>Debug Configurations -&gt; Remote Java Application 新建一个，然后Connection Properties配置为Host：localhost，Port：8888。<br><img src="http://chuantu.biz/t5/133/1499863954x793379697.png" alt="远程调试配置图片"><br>配置完后，Debug运行工程，可以看到BurpSuite启动过程继续，然后在BurpSuite中加载插件开始调试。<br><img src="http://chuantu.biz/t5/133/1499864300x2890173939.png" alt="调试图片"></p>
 
       
     </div>
@@ -354,6 +355,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BurpSuite-IDE-Eclipse/" rel="tag"># BurpSuite,IDE,Eclipse</a>
+          
+        </div>
       
 
       
@@ -437,6 +444,15 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
 
         </nav>
 
@@ -467,7 +483,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载BurpSuite"><span class="nav-number">1.1.</span> <span class="nav-text">下载BurpSuite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDE"><span class="nav-number">1.2.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BurpSuite插件工程"><span class="nav-number">1.3.</span> <span class="nav-text">BurpSuite插件工程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始调试"><span class="nav-number">2.</span> <span class="nav-text">开始调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过下面命令启动BurpSuite"><span class="nav-number">2.1.</span> <span class="nav-text">通过下面命令启动BurpSuite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置远程调试工程"><span class="nav-number">2.2.</span> <span class="nav-text">配置远程调试工程</span></a></li></ol></li></ol></div>
             
 
           </div>
